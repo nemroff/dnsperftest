@@ -5,7 +5,7 @@ command -v bc > /dev/null || { echo "bc was not found. Please install bc."; exit
 
 
 
-NAMESERVERS=`cat /etc/resolv.conf | grep ^nameserver | cut -d " " -f 2 | sed 's/\(.*\)/&#&/'`
+NAMESERVERS=$(grep ^nameserver /etc/resolv.conf | cut -d " " -f 2 | sed 's/\(.*\)/&#&/')
 
 if [[ $(basename "$0") == *6* ]]; then
 	echo "Using providers of DNS over IPv6."
@@ -70,18 +70,18 @@ for p in $NAMESERVERS $PROVIDERS; do
 
     printf "%-21s" "$pname"
     for d in $DOMAINS2TEST; do
-        ttime=`$dig +tries=1 +time=2 +stats @$pip $d |grep "Query time:" | cut -d : -f 2- | cut -d " " -f 2`
+        ttime=$($dig +tries=1 +time=2 +stats @"$pip" "$d" |grep "Query time:" | cut -d : -f 2- | cut -d " " -f 2)
         if [ -z "$ttime" ]; then
-	        #let's have time out be 1s = 1000ms
-	        ttime=1000
+          #let's have time out be 1s = 1000ms
+          ttime=1000
         elif [ "x$ttime" = "x0" ]; then
-	        ttime=1
-	    fi
+          ttime=1
+      fi
 
         printf "%-8s" "$ttime ms"
         ftime=$((ftime + ttime))
     done
-    avg=`bc -lq <<< "scale=2; $ftime/$totaldomains"`
+    avg=$(bc -lq <<< "scale=2; $ftime/$totaldomains")
 
     printf "%7s" "$avg"
     echo ""
