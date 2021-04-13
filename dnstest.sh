@@ -24,6 +24,7 @@ if [[ $(basename "$0") == "dnstest6.sh" ]]; then
 2610:a1:1018::2#neustar_tp
 2610:a1:1018::3#neustar_fs
 "
+    NAMESERVERS=$(echo "$NAMESERVERS" | grep ":")
 else
 	echo "Using providers of DNS over IPv4."
 	PROVIDERS="
@@ -50,6 +51,7 @@ else
 198.101.242.72#alternatedns
 45.90.28.0#nextdns
 "
+    NAMESERVERS=$(echo "$NAMESERVERS" | grep -v ":")
 fi
 
 # Domains to test. Duplicated domains are ok
