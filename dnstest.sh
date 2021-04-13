@@ -7,7 +7,7 @@ command -v bc > /dev/null || { echo "bc was not found. Please install bc."; exit
 
 NAMESERVERS=$(grep ^nameserver /etc/resolv.conf | cut -d " " -f 2 | sed 's/\(.*\)/&#&/')
 
-if [[ $(basename "$0") == *6* ]]; then
+if [[ $(basename "$0") == "dnstest6.sh" ]]; then
 	echo "Using providers of DNS over IPv6."
 	PROVIDERS="
 2606:4700:4700::1111#cloudflare
