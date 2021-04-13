@@ -16,30 +16,30 @@ Includes by default:
  * Neustar (156.154.70.3)
  * Comodo (8.26.56.26)
 
-# Required 
+## Requirements
 
-You need to install bc and dig. 
+You need to install bc and dig.
 
 For Ubuntu:
 
-```
+``` sh
  $ sudo apt-get install bc dnsutils
 ```
 
 For macOS using homebrew:
 
-```
+``` sh
  $ brew install bc bind
 ```
 
-# Utilization
+## Utilization
 
-``` 
+``` sh
  $ git clone --depth=1 https://github.com/cleanbrowsing/dnsperftest/
  $ cd dnsperftest
- $ bash ./dnstest.sh 
+ $ bash ./dnstest.sh
 Using providers of DNS over IPv4.
-               test1   test2   test3   test4   test5   test6   test7   test8   test9   test10  Average 
+               test1   test2   test3   test4   test5   test6   test7   test8   test9   test10  Average
 cloudflare     1 ms    1 ms    1 ms    2 ms    1 ms    1 ms    1 ms    1 ms    1 ms    1 ms      1.10
 google         22 ms   1 ms    4 ms    24 ms   1 ms    19 ms   3 ms    56 ms   21 ms   21 ms     17.20
 quad9          10 ms   19 ms   10 ms   10 ms   10 ms   10 ms   10 ms   10 ms   10 ms   55 ms     15.40
@@ -56,7 +56,7 @@ Use `dnstest6.sh` to test DNS over IPv6 instead:
 ```
  $ bash ./dnstest6.sh
 Using providers of DNS over IPv6.
-               test1   test2   test3   test4   test5   test6   test7   test8   test9   test10  Average 
+               test1   test2   test3   test4   test5   test6   test7   test8   test9   test10  Average
 cloudflare     1 ms    1 ms    1 ms    2 ms    1 ms    1 ms    1 ms    1 ms    1 ms    1 ms      1.10
 google         22 ms   1 ms    4 ms    24 ms   1 ms    19 ms   3 ms    56 ms   21 ms   21 ms     17.20
 quad9          10 ms   19 ms   10 ms   10 ms   10 ms   10 ms   10 ms   10 ms   10 ms   55 ms     15.40
@@ -72,7 +72,7 @@ To sort with the fastest first, add `sort -k 22 -n` at the end of the command:
 ```
   $ bash ./dnstest.sh |sort -k 22 -n
 Using providers of DNS over IPv4.
-               test1   test2   test3   test4   test5   test6   test7   test8   test9   test10  Average 
+               test1   test2   test3   test4   test5   test6   test7   test8   test9   test10  Average
 cloudflare     1 ms    1 ms    1 ms    4 ms    1 ms    1 ms    1 ms    1 ms    1 ms    1 ms      1.30
 norton         2 ms    2 ms    2 ms    2 ms    2 ms    2 ms    2 ms    2 ms    2 ms    2 ms      2.00
 neustar        2 ms    2 ms    2 ms    2 ms    1 ms    2 ms    2 ms    2 ms    2 ms    22 ms     3.90
@@ -85,10 +85,12 @@ yandex         177 ms  216 ms  178 ms  182 ms  186 ms  177 ms  183 ms  174 ms  1
 adguard        199 ms  210 ms  200 ms  201 ms  202 ms  202 ms  199 ms  200 ms  198 ms  201 ms    201.20
 ```
 
-# For Windows users using the Linux subsystem
+## For Windows users using the Linux subsystem
 
 If you receive an error `$'\r': command not found`, convert the file to a Linux-compatible line endings using:
 
-    tr -d '\15\32' < dnstest.sh > dnstest-2.sh
-    
+``` sh
+tr -d '\15\32' < dnstest.sh > dnstest-2.sh
+```
+
 Then run `bash ./dnstest-2.sh`
