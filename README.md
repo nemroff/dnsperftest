@@ -15,7 +15,9 @@ The following providers are included by default:
 * CleanBrowsing (`2a0d:2a00:1::1`)
 * Yandex (`2a02:6b8::feed:0ff`)
 * AdGuard (`2a00:5a60::ad1:0ff`)
-* NeuStar UltraDNS (`2610:a1:1018::3`)
+* NeuStar (`2620:74:1b::1:1`)
+* NeuStar Threat Protection (`2610:a1:1018::2`)
+* NeuStar Family Secure (`2610:a1:1018::3`)
 
 ### IPv4
 
@@ -28,13 +30,14 @@ The following providers are included by default:
 * CleanBrowsing (`185.228.168.168`)
 * Yandex (`77.88.8.7`)
 * AdGuard (`176.103.130.132`)
-* NeuStar UltraDNS Unfiltered (`156.154.70.3`)
+* NeuStar (`64.6.64.6`)
+* NeuStar Threat Protection (`156.154.70.2`)
+* NeuStar Family Secure (`156.154.70.3`)
 * Comodo (`8.26.56.26`)
 * DNS.Watch (`84.200.69.80`)
 * Verisign (`64.6.65.6`)
 * OpenNIC (`13.239.157.177`)
 * UncensoredDNS (`91.239.100.100`)
-* Ultrarecursivedns (`156.154.70.1`)
 * AlternateDNS (`198.101.242.72`)
 * NextDNS (`45.90.28.0`)
 

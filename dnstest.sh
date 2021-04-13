@@ -20,7 +20,9 @@ if [[ $(basename "$0") == *6* ]]; then
 2a0d:2a00:1::1#cleanbrowsing
 2a02:6b8::feed:0ff#yandex
 2a00:5a60::ad1:0ff#adguard
-2610:a1:1018::3#neustar
+2620:74:1b::1:1#neustar
+2610:a1:1018::2#neustar_tp
+2610:a1:1018::3#neustar_fs
 "
 else
 	echo "Using providers of DNS over IPv4."
@@ -37,13 +39,14 @@ else
 185.228.168.168#cleanbrowsing
 77.88.8.7#yandex
 176.103.130.132#adguard
-156.154.70.3#neustar
+64.6.64.6#neustar
+156.154.70.2#neustar_tp
+156.154.70.3#neustar_fs
 8.26.56.26#comodo
 84.200.69.80#dns.watch
 64.6.65.6#verisign
 13.239.157.177#opennic
 91.239.100.100#uncensoreddns
-156.154.70.1#ultrarecursivedns
 198.101.242.72#alternatedns
 45.90.28.0#nextdns
 "
