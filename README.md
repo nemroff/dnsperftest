@@ -2,19 +2,41 @@
 
 Shell scripts to test the performance of the most popular DNS resolvers from your location, over IPv4 or IPv6.
 
-Includes by default:
- * CloudFlare (1.1.1.1)
- * Level3 (4.2.2.1)
- * Google (8.8.8.8)
- * Quad9 (9.9.9.9)
- * Freenom (80.80.80.80)
- * OpenDNS (208.67.222.123)
- * Norton (199.85.126.20)
- * CleanBrowsing (185.228.168.168)
- * Yandex (77.88.8.7)
- * AdGuard (176.103.130.132)
- * Neustar (156.154.70.3)
- * Comodo (8.26.56.26)
+## Included DNS Providers
+
+The following providers are included by default:
+
+### IPv6
+
+* CloudFlare (`2606:4700:4700::1111` / `2606:4700:4700::1001`)
+* Google (`2001:4860:4860::8888` / `2001:4860:4860::8844`)
+* Quad9 (`2620:fe::fe` / `2620:fe::fe:9`)
+* OpenDNS (`2620:119:35::35`)
+* CleanBrowsing (`2a0d:2a00:1::1`)
+* Yandex (`2a02:6b8::feed:0ff`)
+* AdGuard (`2a00:5a60::ad1:0ff`)
+* NeuStar UltraDNS (`2610:a1:1018::3`)
+
+### IPv4
+
+* CloudFlare (`1.1.1.1` / `1.0.0.1`)
+* Level3 (`4.2.2.1`)
+* Google (`8.8.8.8` / `8.8.4.4`)
+* Quad9 (`9.9.9.9` / `149.112.112.112`)
+* Freenom (`80.80.80.80`)
+* OpenDNS (`208.67.222.123`)
+* CleanBrowsing (`185.228.168.168`)
+* Yandex (`77.88.8.7`)
+* AdGuard (`176.103.130.132`)
+* NeuStar UltraDNS Unfiltered (`156.154.70.3`)
+* Comodo (`8.26.56.26`)
+* DNS.Watch (`84.200.69.80`)
+* Verisign (`64.6.65.6`)
+* OpenNIC (`13.239.157.177`)
+* UncensoredDNS (`91.239.100.100`)
+* Ultrarecursivedns (`156.154.70.1`)
+* AlternateDNS (`198.101.242.72`)
+* NextDNS (`45.90.28.0`)
 
 ## Requirements
 
