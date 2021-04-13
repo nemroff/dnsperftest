@@ -5,7 +5,7 @@ command -v bc > /dev/null || { echo "bc was not found. Please install bc."; exit
 
 
 
-NAMESERVERS=$(grep ^nameserver /etc/resolv.conf | cut -d " " -f 2 | sed 's/\(.*\)/&#&/')
+CURRENTNS=$(grep ^nameserver /etc/resolv.conf | cut -d " " -f 2)
 
 if [[ $(basename "$0") == "dnstest6.sh" ]]; then
 	echo "Using providers of DNS over IPv6."
@@ -24,7 +24,7 @@ if [[ $(basename "$0") == "dnstest6.sh" ]]; then
 2610:a1:1018::2#neustar_tp
 2610:a1:1018::3#neustar_fs
 "
-    NAMESERVERS=$(echo "$NAMESERVERS" | grep ":")
+    CURRENTNS=$(echo "$CURRENTNS" | grep ":")
 else
 	echo "Using providers of DNS over IPv4."
 	PROVIDERS="
@@ -51,8 +51,15 @@ else
 198.101.242.72#alternatedns
 45.90.28.0#nextdns
 "
-    NAMESERVERS=$(echo "$NAMESERVERS" | grep -v ":")
+    CURRENTNS=$(echo "$CURRENTNS" | grep -v ":")
 fi
+
+NAMESERVERS=""
+
+for p in $CURRENTNS; do
+    preverse=$(dig +short +time=1 +tries=1 -x $p | sed 's/\.$//')
+    NAMESERVERS="${NAMESERVERS:+$NAMESERVERS$'\n'}$p#* ${preverse:-${p}}"
+done
 
 # Domains to test. Duplicated domains are ok
 DOMAINS2TEST="www.google.com amazon.com facebook.com www.youtube.com www.reddit.com  wikipedia.org twitter.com gmail.com www.google.com whatsapp.com"
